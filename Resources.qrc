@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Iconos/calculate.png</file>
+        <file>Iconos/exit.png</file>
+        <file>Iconos/new_doc.png</file>
+        <file>Iconos/open_doc.png</file>
+        <file>Iconos/save_doc.png</file>
+        <file>Iconos/about.png</file>
+    </qresource>
+</RCC>

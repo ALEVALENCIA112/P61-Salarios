@@ -19,6 +19,9 @@
   <property name="windowTitle">
    <string>Salarios</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(107, 174, 255);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
@@ -41,6 +44,9 @@
          <layout class="QFormLayout" name="formLayout">
           <item row="0" column="0">
            <widget class="QLabel" name="label">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(180, 220, 255);</string>
+            </property>
             <property name="text">
              <string>Nombre:</string>
             </property>
@@ -48,6 +54,9 @@
           </item>
           <item row="0" column="1">
            <widget class="QLineEdit" name="inNombre">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 255);</string>
+            </property>
             <property name="placeholderText">
              <string>Ingrese el nombre</string>
             </property>
@@ -55,19 +64,32 @@
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_2">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(180, 220, 255);</string>
+            </property>
             <property name="text">
-             <string>Horas:</string>
+             <string>Horas:    </string>
             </property>
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QSpinBox" name="inHoras"/>
+           <widget class="QSpinBox" name="inHoras">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 255);</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
        </item>
        <item>
         <widget class="QGroupBox" name="groupBox">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(172, 255, 252);</string>
+         </property>
          <property name="title">
           <string>Jornada</string>
          </property>
@@ -101,6 +123,9 @@
        </item>
        <item>
         <widget class="QWidget" name="widget_4" native="true">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(172, 255, 252);</string>
+         </property>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
            <spacer name="horizontalSpacer">
@@ -152,6 +177,9 @@
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <widget class="QPlainTextEdit" name="outCalculos">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(233, 255, 240);</string>
+         </property>
          <property name="readOnly">
           <bool>true</bool>
          </property>
@@ -197,6 +225,10 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionNuevo">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Iconos/new_doc.png</normaloff>:/Iconos/new_doc.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Nuevo</string>
    </property>
@@ -205,6 +237,10 @@
    </property>
   </action>
   <action name="actionAbrir">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Iconos/open_doc.png</normaloff>:/Iconos/open_doc.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Abrir</string>
    </property>
@@ -213,6 +249,10 @@
    </property>
   </action>
   <action name="actionGuardar">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Iconos/save_doc.png</normaloff>:/Iconos/save_doc.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Guardar</string>
    </property>
@@ -221,6 +261,10 @@
    </property>
   </action>
   <action name="actionCalcular">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Iconos/calculate.png</normaloff>:/Iconos/calculate.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Calcular</string>
    </property>
@@ -229,6 +273,10 @@
    </property>
   </action>
   <action name="actionSalir">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Iconos/exit.png</normaloff>:/Iconos/exit.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Salir</string>
    </property>
@@ -237,11 +285,17 @@
    </property>
   </action>
   <action name="actionAcerca_de">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Iconos/about.png</normaloff>:/Iconos/about.png</iconset>
+   </property>
    <property name="text">
     <string>Acerca de Salarios</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
