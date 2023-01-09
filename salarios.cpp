@@ -135,3 +135,24 @@ void Salarios::on_actionAcerca_de_triggered()
 
 }
 
+void Salarios::on_actionAbrir_triggered()
+{
+    QString texto="";
+    QFile file(QFileDialog::getOpenFileName(this,
+                                            "Abrir Archivo",
+                                            "",
+                                            "Archivo de Texto(*.txt)"));
+
+           if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
+              QMessageBox::warning(this, "Salarios", "No se puede abrir el archivo");
+           }else{
+               QTextStream entrada(&file);
+               while (!entrada.atEnd()) {
+                   texto += entrada.readLine()+'\n';
+               }
+            ui->outCalculos->appendPlainText(texto);
+               file.close();
+           }
+}
+
+
