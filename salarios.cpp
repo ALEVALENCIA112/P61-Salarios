@@ -24,12 +24,41 @@ void Salarios::on_btnCalcular_clicked()
 
 void Salarios::on_actionNuevo_triggered()
 {
-    // Limpiar widgets
-    limpiar();
-    // Limpiar el texto de los calculos
-    ui->outCalculos->clear();
-    // Mostrar mensaje en la barra de estado
-    ui->statusbar->showMessage("Nuevos cálculos de salario.", 3000);
+    QString datos = ui->outCalculos->toPlainText();
+
+    if(datos.isEmpty()){
+
+        // Limpiar widgets´
+        limpiar();
+
+        // Limpiar el texto de los calculos
+        ui->outCalculos->clear();
+
+        // Mostrar mensaje en la barra de estado
+        ui->statusbar->showMessage("Nuevos cálculos de salario.", 3000);
+
+    }else{
+
+        save_warn *sw = new save_warn(this);
+
+        if(sw->exec() == QDialog::Accepted){
+
+            on_actionGuardar_triggered();
+
+            limpiar();
+
+            ui->outCalculos->clear();
+
+            ui->statusbar->showMessage("Nuevos cálculos de salario.", 3000);
+
+        }else{
+            QMessageBox::warning(this,
+                                 "Nuevo archivo",
+                                 "El archivo no se guardo.");
+        }
+
+    }
+
 }
 
 void Salarios::limpiar()
@@ -45,35 +74,51 @@ void Salarios::calcular()
 {
     // Obtener datos de la GUI
     QString nombre = ui->inNombre->text();
+
     int horas = ui->inHoras->value();
+
     TipoJornada jornada;
+
     if(ui->inMatutina->isChecked()){
+
         jornada = TipoJornada::Matituna;
+
     }else if (ui->inVespertina->isChecked()){
+
         jornada = TipoJornada::Vespertina;
+
     }else{
+
         jornada = TipoJornada::Nocturna;
     }
+
     // Validacion de datos
     if(nombre == "" || horas == 0){
+
         QMessageBox::warning(this,"Advertencia","El nombre y/o el número de horas es incorrecto");
         return;
     }
 
     // Establecer datos al controlador
     m_contolador->setDatos(nombre, horas, jornada);
+
     // Calcular salarios
     if (m_contolador->calcular()) {
+
         // Muestra los resultados
         ui->outCalculos->appendPlainText(m_contolador->getDatos());
+
     } else {
+
         QMessageBox::critical(
                     this,
                     "Error",
                     "No se puede calcular el salario.");
     }
+
     // Limpiar widgets
     limpiar();
+
     // Mostrar mensaje en la barra de estado
     ui->statusbar->showMessage("Salario de " + nombre + " calculado.",5000);
 

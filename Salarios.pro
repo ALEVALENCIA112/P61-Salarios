@@ -13,17 +13,20 @@ SOURCES += \
     controlador.cpp \
     main.cpp \
     obrero.cpp \
-    salarios.cpp
+    salarios.cpp \
+    save_warn.cpp
 
 HEADERS += \
     acerca.h \
     controlador.h \
     obrero.h \
-    salarios.h
+    salarios.h \
+    save_warn.h
 
 FORMS += \
     acerca.ui \
-    salarios.ui
+    salarios.ui \
+    save_warn.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
